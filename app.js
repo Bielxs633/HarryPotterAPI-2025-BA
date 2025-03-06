@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchBar = document.getElementById('search-bar');
     const characterDetails = document.getElementById('character-details');
     const container = document.querySelector('.container'); // Container principal
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
 
     let characters = []; // Vai armazenar os dados dos personagens
 
@@ -106,6 +107,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Adiciona evento de input na barra de pesquisa
     searchBar.addEventListener('input', filterCharacters);
+
+    // Função para alternar entre modo claro e modo escuro
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+    }
+
+    // Adiciona evento de clique no botão de modo escuro
+    darkModeToggle.addEventListener('click', toggleDarkMode);
 
     // Chama a função para buscar e exibir os personagens
     fetchCharacters();

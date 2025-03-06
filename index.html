@@ -8,14 +8,32 @@
     <title>Harry Potter - Personagens</title>
 </head>
 <body>
-    <div class="container">
-        <input type="text" id="search-bar" placeholder="Pesquisar por nome, casa ou espécie..." class="search-bar">
-        <div id="characters-container" class="characters-container">
-            <!-- Personagens serão exibidos aqui -->
+
+    <!-- Fundo fixo com as casas -->
+    <div class="background">
+        <div class="quadrante grifinoria">
+            <img src="./imgs/casas/GRYFFINDOR.webp" alt="Grifinória">
         </div>
-        <div id="character-details" class="character-details">
-            <!-- Detalhes do personagem serão exibidos aqui -->
+        <div class="quadrante sonserina">
+            <img src="./imgs/casas/SLYTHERIN.webp" alt="Sonserina">
+        </div>
+        <div class="quadrante lufalufa">
+            <img src="./imgs/casas/HUFFLEPUFF.webp" alt="Lufa-Lufa">
+        </div>
+        <div class="quadrante corvinal">
+            <img src="./imgs/casas/RAVENCLAW.webp" alt="Corvinal">
         </div>
     </div>
+
+    <!-- Conteúdo que pode rolar -->
+    <div class="content">
+        <div class="container">
+            <input type="text" id="search-bar" placeholder="Pesquisar por nome, casa ou espécie..." class="search-bar">
+            <div id="characters-container" class="characters-container"></div>
+            <div id="character-details" class="character-details"></div>
+            <button id="dark-mode-toggle" class="dark-mode-toggle">Modo Escuro</button>
+        </div>
+    </div>
+
 </body>
 </html>
