@@ -5,111 +5,103 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    overflow: hidden;
 }
 
-/* Fundo fixo com as casas */
-.background {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
-    z-index: -1;
-}
-
+/* Quadrantes das casas */
 .quadrante {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.grifinoria {
+    background-color: #7F0909; /* Vermelho */
+    top: 0;
+    left: 0;
+}
+
+.sonserina {
+    background-color: #1A472A; /* Verde */ 
+    top: 0;
+    right: 0;
+}
+
+.lufalufa {
+    background-color: #FFD700; /* Amarelo */
+    bottom: 0;
+    left: 0;
+}
+
+.corvinal {
+    background-color: #0D2265;  /* Azul */
+    bottom: 0;
+    right: 0;
+}
+
+.quadrante img {
+    width: 250px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.quadrante img:hover {
+    transform: scale(1.1);
+}
+
+/* Botão central */
+.botao-central {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao-central img {
+    width: 250px;
+    opacity: 1;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.botao-central img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Estilo da área de personagens */
+#characters-container {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    position: relative;
-}
-
-/* Cores das casas */
-.grifinoria { background-color: #7F0909; } /* Vermelho */
-.sonserina { background-color: #1A472A; } /* Verde */
-.lufalufa { background-color: #FFD700; } /* Amarelo */
-.corvinal { background-color: #0D2265; } /* Azul */
-
-/* Imagens das casas */
-.quadrante img {
-    position: absolute;
-    width: 300px;
-    opacity: 0.5;
-    top: 50%;
-    left: 17%;
-    transform: translate(-50%, -50%);
-}
-
-.sonserina img { top: 50%; left: 82%; }
-.lufalufa img { top: 50%; left: 17%; }
-.corvinal img { top: 50%; left: 82%; }
-
-/* Conteúdo principal que pode rolar */
-.content {
-    position: relative;
-    z-index: 1;
+    background: rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
     padding: 20px;
-}
-
-/* Container de conteúdo */
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.07);
-    border-radius: 10px;
     text-align: center;
+    z-index: 2; /* Garante que os personagens fiquem acima do fundo */
 }
 
-/* Barra de pesquisa */
-.search-bar {
-    width: 100%;
+#search-bar {
+    width: 80%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-}
-
-/* Lista de personagens */
-.characters-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-/* Cartão de personagem */
-.character-card {
-    cursor: pointer;
-    text-align: center;
-    border: 2px solid #ccc;
-    padding: 10px;
-    border-radius: 10px;
-    transition: transform 0.2s;
-    width: 200px;
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.character-card:hover {
-    transform: scale(1.05);
-}
-
-.character-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-
-/* Detalhes do personagem */
-.character-details {
-    display: none;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #back-button {
@@ -119,51 +111,63 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #back-button:hover {
     background-color: #45a049;
 }
 
-/* Botão de Modo Escuro */
-.dark-mode-toggle {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
+.character-card {
+    display: inline-block;
+    background: #FFFFFF;
+    padding: 20px; /* Aumentei o padding para mais espaço interno */
+    margin: 15px; /* Aumentei a margem para mais espaçamento entre os cartões */
+    border-radius: 10px; /* Bordas mais arredondadas */
+    text-align: center;
+    width: 250px; /* Aumentei a largura do cartão */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Sombra para destacar os cartões */
+    transition: transform 0.3s ease; /* Efeito de hover suave */
 }
 
-.dark-mode-toggle:hover {
-    background-color: #555;
+.character-card:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
 }
 
-/* Modo Escuro */
-body.dark-mode {
-    background-color: #121212;
-    color: white;
+.character-card img {
+    width: 200px; /* Aumentei a largura da imagem */
+    height: 280px; /* Aumentei a altura da imagem */
+    object-fit: cover; /* Mantém a proporção da imagem e corta o excesso */
+    border-radius: 10px; /* Bordas mais arredondadas */
+    margin-bottom: 15px; /* Espaçamento abaixo da imagem */
 }
 
-body.dark-mode .container {
-    background: rgba(0, 0, 0, 0.7);
+.character-card h3 {
+    font-size: 20px; /* Aumentei o tamanho da fonte do nome */
+    margin-top: 10px;
+    color: #333; /* Cor mais escura para o texto */
 }
 
-body.dark-mode .quadrante img {
-    opacity: 0.2;
+.character-card p {
+    font-size: 16px; /* Aumentei o tamanho da fonte das informações */
+    color: #555; /* Cor mais suave para o texto */
+    margin: 5px 0; /* Espaçamento entre os parágrafos */
 }
 
-body.dark-mode .character-card {
-    background-color: rgba(0, 0, 0, 0.6);
-    border-color: #444;
+/* Fundo da casa selecionada */
+#fundo-casa {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Fica abaixo dos personagens, mas acima do fundo inicial */
+    justify-content: center;
+    align-items: center;
 }
 
-body.dark-mode .search-bar {
-    border-color: #444;
-}
-
-body.dark-mode .dark-mode-toggle {
-    background-color: #555;
+#fundo-casa img {
+    width: 300px;
+    opacity: 0.5; /* Brasão meio opaco */
 }

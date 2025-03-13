@@ -3,37 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter - Casas</title>
     <link rel="stylesheet" href="style.css">
-    <script src="./app.js" defer></script>
-    <title>Harry Potter - Personagens</title>
+    <script src="app.js" defer></script>
 </head>
 <body>
 
-    <!-- Fundo fixo com as casas -->
-    <div class="background">
-        <div class="quadrante grifinoria">
-            <img src="./imgs/casas/GRYFFINDOR.webp" alt="Grifinória">
-        </div>
-        <div class="quadrante sonserina">
-            <img src="./imgs/casas/SLYTHERIN.webp" alt="Sonserina">
-        </div>
-        <div class="quadrante lufalufa">
-            <img src="./imgs/casas/HUFFLEPUFF.webp" alt="Lufa-Lufa">
-        </div>
-        <div class="quadrante corvinal">
-            <img src="./imgs/casas/RAVENCLAW.webp" alt="Corvinal">
-        </div>
+    <!-- Fundo dividido em quadrantes -->
+    <div class="quadrante grifinoria" data-house="Gryffindor">
+        <img src="./imgs/casas/GRYFFINDOR.webp" alt="Grifinória">
+    </div>
+    <div class="quadrante sonserina" data-house="Slytherin">
+        <img src="./imgs/casas/SLYTHERIN.webp" alt="Sonserina">
+    </div>
+    <div class="quadrante lufalufa" data-house="Hufflepuff">
+        <img src="./imgs/casas/HUFFLEPUFF.webp" alt="Lufa-Lufa">
+    </div>
+    <div class="quadrante corvinal" data-house="Ravenclaw">
+        <img src="./imgs/casas/RAVENCLAW.webp" alt="Corvinal">
     </div>
 
-    <!-- Conteúdo que pode rolar -->
-    <div class="content">
-        <div class="container">
-            <input type="text" id="search-bar" placeholder="Pesquisar por nome, casa ou espécie..." class="search-bar">
-            <div id="characters-container" class="characters-container"></div>
-            <div id="character-details" class="character-details"></div>
-            <button id="dark-mode-toggle" class="dark-mode-toggle">Modo Escuro</button>
-        </div>
+    <!-- Botão no centro para mostrar todos -->
+    <div class="botao-central" id="mostrar-todos">
+        <img src="./imgs/casas/All.png" alt="Mostrar Todos">
     </div>
+
+    <!-- Área para exibir os personagens -->
+    <div id="characters-container">
+        <input type="text" id="search-bar" placeholder="Pesquisar por nome, casa ou espécie..." class="search-bar">
+        <button id="back-button">Voltar</button>
+        <div id="characters-list"></div>
+    </div>
+
+    <!-- Fundo da casa selecionada -->
+    <div id="fundo-casa"></div>
 
 </body>
 </html>
