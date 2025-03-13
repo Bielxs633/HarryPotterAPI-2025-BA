@@ -42,13 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Função para mostrar os detalhes do personagem
     function showCharacterDetails(character) {
         charactersContainer.style.display = 'none';
-        characterDetails.style.display = 'block';
+        characterDetails.style.display = 'flex';
 
         characterDetails.innerHTML = `
             <div class="character-details-container">
                 <img class="detail-image" src="${character.image || './imgs/placeholder.jpg'}" alt="${character.name}">
                 <div class="character-info">
-                    <h2>${character.name}</h2>
+                    <h2><strong>${character.name}</strong></h2> <!-- Nome em negrito -->
                     <p><span class="detail-title">Espécie:</span> ${character.species || 'Desconhecida'}</p>
                     <p><span class="detail-title">Gênero:</span> ${character.gender || 'Desconhecido'}</p>
                     <p><span class="detail-title">Casa:</span> ${character.house || 'Desconhecida'}</p>

@@ -88,23 +88,23 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.7); /* Fundo escurecido */
     overflow-y: auto;
     padding: 20px;
     text-align: center;
-    z-index: 2; /* Garante que os personagens fiquem acima do fundo */
+    z-index: 2;
 }
 
 /* Barra de pesquisa */
 #search-bar {
-    width: 60%; /* Largura reduzida para melhor centralização */
+    width: 60%;
     padding: 10px;
-    margin: 0 auto 20px; /* Centraliza horizontalmente */
+    margin: 0 auto 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    background: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
-    display: block; /* Garante que a barra de pesquisa seja exibida */
+    background: rgba(255, 255, 255, 0.8);
+    display: block;
 }
 
 /* Botão de voltar */
@@ -115,10 +115,10 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    position: fixed; /* Fixo na tela */
-    bottom: 40px; /* Aumentei a distância do fundo */
-    right: 40px; /* Aumentei a distância da direita */
-    z-index: 3; /* Garante que o botão fique acima dos cartões */
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 3;
 }
 
 #back-button:hover {
@@ -133,7 +133,7 @@ body {
     margin: 15px;
     border-radius: 10px;
     text-align: center;
-    width: 240px; /* Aumentei a largura dos cartões */
+    width: 240px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
     transition: transform 0.3s ease;
     cursor: pointer;
@@ -144,8 +144,8 @@ body {
 }
 
 .character-card img {
-    width: 200px; /* Aumentei a largura da imagem */
-    height: 280px; /* Mantive a altura da imagem */
+    width: 200px;
+    height: 280px;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 15px;
@@ -171,36 +171,49 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    text-align: center;
-    z-index: 4; /* Garante que os detalhes fiquem acima de tudo */
+    background: rgba(0, 0, 0, 0.7); /* Fundo escurecido */
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
 }
 
 .character-details-container {
-    background: #fff;
+    background: #ffffffbb;
     padding: 20px;
     border-radius: 10px;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 900px;
+    margin: auto;
     text-align: left;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    min-height: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
 }
 
 .detail-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
+    width: 300px;
+    height: 420px;
+    border-radius: 10px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.character-info {
+    flex: 1;
+    padding-left: 20px;
 }
 
 .character-info h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 .character-info p {
-    font-size: 16px;
-    margin: 5px 0;
+    font-size: 18px;
+    margin: 10px 0;
+    color: #555;
 }
 
 .character-info ul {
@@ -209,7 +222,7 @@ body {
 }
 
 .character-info ul li {
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 #back-button-details {
@@ -219,7 +232,10 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
+    position: absolute;
+    bottom: 20px; /* Distância do fundo */
+    left: 20px; /* Distância da esquerda */
+    font-size: 18px;
 }
 
 #back-button-details:hover {
@@ -234,12 +250,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Fica abaixo dos personagens, mas acima do fundo inicial */
+    z-index: 1;
     justify-content: center;
     align-items: center;
+    background: rgba(0, 0, 0, 0.7); /* Fundo escurecido */
 }
 
 #fundo-casa img {
     width: 300px;
-    opacity: 0.5; /* Brasão meio opaco */
+    opacity: 0.5;
 }

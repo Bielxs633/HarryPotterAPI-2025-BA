@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harry Potter - Casas</title>
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
+    <title>Harry Potter</title>
 </head>
 <body>
 
-    <!-- Fundo dividido em quadrantes -->
+    <!-- Casas -->
     <div class="quadrante grifinoria" data-house="Gryffindor">
         <img src="./imgs/casas/GRYFFINDOR.webp" alt="Grifinória">
     </div>
@@ -22,20 +22,19 @@
     <div class="quadrante corvinal" data-house="Ravenclaw">
         <img src="./imgs/casas/RAVENCLAW.webp" alt="Corvinal">
     </div>
-
-    <!-- Botão no centro para mostrar todos -->
+    <!-- Todas as Casas -->
     <div class="botao-central" id="mostrar-todos">
         <img src="./imgs/casas/All.png" alt="Mostrar Todos">
     </div>
 
-    <!-- Área para exibir os personagens -->
+    <!-- Área de personagens -->
     <div id="characters-container">
         <input type="text" id="search-bar" placeholder="Pesquisar por nome, casa ou espécie..." class="search-bar">
         <button id="back-button">Voltar</button>
         <div id="characters-list"></div>
     </div>
 
-    <!-- Área para exibir os detalhes do personagem -->
+    <!-- Detalhes do personagem -->
     <div id="character-details"></div>
 
     <!-- Fundo da casa selecionada -->
