@@ -136,6 +136,7 @@ body {
     width: 240px; /* Aumentei a largura dos cartões */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .character-card:hover {
@@ -160,6 +161,69 @@ body {
     font-size: 16px;
     color: #555;
     margin: 5px 0;
+}
+
+/* Estilo da área de detalhes do personagem */
+#character-details {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align: center;
+    z-index: 4; /* Garante que os detalhes fiquem acima de tudo */
+}
+
+.character-details-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.detail-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.character-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.character-info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.character-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.character-info ul li {
+    margin: 5px 0;
+}
+
+#back-button-details {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#back-button-details:hover {
+    background-color: #45a049;
 }
 
 /* Fundo da casa selecionada */
