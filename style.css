@@ -95,15 +95,19 @@ body {
     z-index: 2; /* Garante que os personagens fiquem acima do fundo */
 }
 
+/* Barra de pesquisa */
 #search-bar {
-    width: 80%;
+    width: 60%; /* Largura reduzida para melhor centralização */
     padding: 10px;
-    margin-bottom: 20px;
+    margin: 0 auto 20px; /* Centraliza horizontalmente */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    background: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+    display: block; /* Garante que a barra de pesquisa seja exibida */
 }
 
+/* Botão de voltar */
 #back-button {
     background-color: #4CAF50;
     color: white;
@@ -111,47 +115,51 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 20px;
+    position: fixed; /* Fixo na tela */
+    bottom: 40px; /* Aumentei a distância do fundo */
+    right: 40px; /* Aumentei a distância da direita */
+    z-index: 3; /* Garante que o botão fique acima dos cartões */
 }
 
 #back-button:hover {
     background-color: #45a049;
 }
 
+/* Cartões de personagem */
 .character-card {
     display: inline-block;
-    background: #FFFFFF;
-    padding: 20px; /* Aumentei o padding para mais espaço interno */
-    margin: 15px; /* Aumentei a margem para mais espaçamento entre os cartões */
-    border-radius: 10px; /* Bordas mais arredondadas */
+    background: #ffffffbb;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 10px;
     text-align: center;
-    width: 250px; /* Aumentei a largura do cartão */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); /* Sombra para destacar os cartões */
-    transition: transform 0.3s ease; /* Efeito de hover suave */
+    width: 240px; /* Aumentei a largura dos cartões */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
+    transition: transform 0.3s ease;
 }
 
 .character-card:hover {
-    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+    transform: scale(1.05);
 }
 
 .character-card img {
     width: 200px; /* Aumentei a largura da imagem */
-    height: 280px; /* Aumentei a altura da imagem */
-    object-fit: cover; /* Mantém a proporção da imagem e corta o excesso */
-    border-radius: 10px; /* Bordas mais arredondadas */
-    margin-bottom: 15px; /* Espaçamento abaixo da imagem */
+    height: 280px; /* Mantive a altura da imagem */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .character-card h3 {
-    font-size: 20px; /* Aumentei o tamanho da fonte do nome */
+    font-size: 20px;
     margin-top: 10px;
-    color: #333; /* Cor mais escura para o texto */
+    color: #333;
 }
 
 .character-card p {
-    font-size: 16px; /* Aumentei o tamanho da fonte das informações */
-    color: #555; /* Cor mais suave para o texto */
-    margin: 5px 0; /* Espaçamento entre os parágrafos */
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
 }
 
 /* Fundo da casa selecionada */
