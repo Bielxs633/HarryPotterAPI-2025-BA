@@ -23,18 +23,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função para exibir personagens
     function displayCharacters(characters) {
-        charactersList.innerHTML = '';
+        // Limpa o conteúdo atual
+        while (charactersList.firstChild) {
+            charactersList.removeChild(charactersList.firstChild);
+        }
+
         characters.forEach(character => {
             const card = document.createElement('div');
             card.classList.add('character-card');
             card.addEventListener('click', () => showCharacterDetails(character));
 
-            card.innerHTML = `
-                <img src="${character.image || './imgs/placeholder.jpg'}" alt="${character.name}">
-                <h3>${character.name}</h3>
-                <p><strong>Casa:</strong> ${character.house || 'Desconhecida'}</p>
-                <p><strong>Espécie:</strong> ${character.species || 'Desconhecida'}</p>
-            `;
+            // Cria a imagem do personagem
+            const img = document.createElement('img');
+            img.src = character.image || './imgs/placeholder.jpg';
+            img.alt = character.name;
+
+            // Cria o nome do personagem
+            const name = document.createElement('h3');
+            name.textContent = character.name;
+
+            // Cria a casa do personagem
+            const house = document.createElement('p');
+            house.innerHTML = `<strong>Casa:</strong> ${character.house || 'Desconhecida'}`;
+
+            // Cria a espécie do personagem
+            const species = document.createElement('p');
+            species.innerHTML = `<strong>Espécie:</strong> ${character.species || 'Desconhecida'}`;
+
+            // Adiciona os elementos ao cartão
+            card.appendChild(img);
+            card.appendChild(name);
+            card.appendChild(house);
+            card.appendChild(species);
+
+            // Adiciona o cartão à lista de personagens
             charactersList.appendChild(card);
         });
     }
@@ -44,39 +66,114 @@ document.addEventListener('DOMContentLoaded', () => {
         charactersContainer.style.display = 'none';
         characterDetails.style.display = 'flex';
 
-        characterDetails.innerHTML = `
-            <div class="character-details-container">
-                <img class="detail-image" src="${character.image || './imgs/placeholder.jpg'}" alt="${character.name}">
-                <div class="character-info">
-                    <h2><strong>${character.name}</strong></h2> <!-- Nome em negrito -->
-                    <p><span class="detail-title">Espécie:</span> ${character.species || 'Desconhecida'}</p>
-                    <p><span class="detail-title">Gênero:</span> ${character.gender || 'Desconhecido'}</p>
-                    <p><span class="detail-title">Casa:</span> ${character.house || 'Desconhecida'}</p>
-                    <p><span class="detail-title">Data de Nascimento:</span> ${character.dateOfBirth || 'Desconhecida'}</p>
-                    <p><span class="detail-title">Ano de Nascimento:</span> ${character.yearOfBirth || 'Desconhecido'}</p>
-                    <p><span class="detail-title">Feiticeiro:</span> ${character.wizard ? 'Sim' : 'Não'}</p>
-                    <p><span class="detail-title">Ancestralidade:</span> ${character.ancestry || 'Desconhecida'}</p>
-                    <p><span class="detail-title">Cor dos Olhos:</span> ${character.eyeColour || 'Desconhecida'}</p>
-                    <p><span class="detail-title">Cor do Cabelo:</span> ${character.hairColour || 'Desconhecida'}</p>
-                    <p><span class="detail-title">Patronus:</span> ${character.patronus || 'Desconhecido'}</p>
-                    <p><span class="detail-title">Estudante de Hogwarts:</span> ${character.hogwartsStudent ? 'Sim' : 'Não'}</p>
-                    <p><span class="detail-title">Funcionário de Hogwarts:</span> ${character.hogwartsStaff ? 'Sim' : 'Não'}</p>
-                    <p><span class="detail-title">Nomes Alternativos:</span> ${character.alternate_names.join(', ') || 'Nenhum'}</p>
-                    <p><span class="detail-title">Varinha:</span></p>
-                        <ul>
-                            <li><strong>Madeira:</strong> ${character.wand?.wood || 'Desconhecida'}</li>
-                            <li><strong>Núcleo:</strong> ${character.wand?.core || 'Desconhecido'}</li>
-                            <li><strong>Comprimento:</strong> ${character.wand?.length || 'Desconhecido'} polegadas</li>
-                        </ul>
-                    <p><span class="detail-title">Ator:</span> ${character.actor || 'Desconhecido'}</p>
-                    
-                    <button id="back-button-details">Voltar</button>
-                </div>
-            </div>
+        // Limpa o conteúdo anterior
+        while (characterDetails.firstChild) {
+            characterDetails.removeChild(characterDetails.firstChild);
+        }
+
+        // Cria o container de detalhes
+        const detailsContainer = document.createElement('div');
+        detailsContainer.classList.add('character-details-container');
+
+        // Cria a imagem do personagem
+        const img = document.createElement('img');
+        img.classList.add('detail-image');
+        img.src = character.image || './imgs/placeholder.jpg';
+        img.alt = character.name;
+
+        // Cria o container de informações
+        const infoContainer = document.createElement('div');
+        infoContainer.classList.add('character-info');
+
+        // Cria o nome do personagem
+        const name = document.createElement('h2');
+        name.innerHTML = `<strong>${character.name}</strong>`;
+
+        // Cria os detalhes do personagem
+        const species = document.createElement('p');
+        species.innerHTML = `<span class="detail-title">Espécie:</span> ${character.species || 'Desconhecida'}`;
+
+        const gender = document.createElement('p');
+        gender.innerHTML = `<span class="detail-title">Gênero:</span> ${character.gender || 'Desconhecido'}`;
+
+        const house = document.createElement('p');
+        house.innerHTML = `<span class="detail-title">Casa:</span> ${character.house || 'Desconhecida'}`;
+
+        const dateOfBirth = document.createElement('p');
+        dateOfBirth.innerHTML = `<span class="detail-title">Data de Nascimento:</span> ${character.dateOfBirth || 'Desconhecida'}`;
+
+        const yearOfBirth = document.createElement('p');
+        yearOfBirth.innerHTML = `<span class="detail-title">Ano de Nascimento:</span> ${character.yearOfBirth || 'Desconhecido'}`;
+
+        const wizard = document.createElement('p');
+        wizard.innerHTML = `<span class="detail-title">Feiticeiro:</span> ${character.wizard ? 'Sim' : 'Não'}`;
+
+        const ancestry = document.createElement('p');
+        ancestry.innerHTML = `<span class="detail-title">Ancestralidade:</span> ${character.ancestry || 'Desconhecida'}`;
+
+        const eyeColour = document.createElement('p');
+        eyeColour.innerHTML = `<span class="detail-title">Cor dos Olhos:</span> ${character.eyeColour || 'Desconhecida'}`;
+
+        const hairColour = document.createElement('p');
+        hairColour.innerHTML = `<span class="detail-title">Cor do Cabelo:</span> ${character.hairColour || 'Desconhecida'}`;
+
+        const patronus = document.createElement('p');
+        patronus.innerHTML = `<span class="detail-title">Patronus:</span> ${character.patronus || 'Desconhecido'}`;
+
+        const hogwartsStudent = document.createElement('p');
+        hogwartsStudent.innerHTML = `<span class="detail-title">Estudante de Hogwarts:</span> ${character.hogwartsStudent ? 'Sim' : 'Não'}`;
+
+        const hogwartsStaff = document.createElement('p');
+        hogwartsStaff.innerHTML = `<span class="detail-title">Funcionário de Hogwarts:</span> ${character.hogwartsStaff ? 'Sim' : 'Não'}`;
+
+        const alternateNames = document.createElement('p');
+        alternateNames.innerHTML = `<span class="detail-title">Nomes Alternativos:</span> ${character.alternate_names.join(', ') || 'Nenhum'}`;
+
+        const wand = document.createElement('p');
+        wand.innerHTML = `<span class="detail-title">Varinha:</span>`;
+
+        const wandDetails = document.createElement('ul');
+        wandDetails.innerHTML = `
+            <li><strong>Madeira:</strong> ${character.wand?.wood || 'Desconhecida'}</li>
+            <li><strong>Núcleo:</strong> ${character.wand?.core || 'Desconhecido'}</li>
+            <li><strong>Comprimento:</strong> ${character.wand?.length || 'Desconhecido'} polegadas</li>
         `;
 
-        // Adiciona funcionalidade de voltar
-        document.getElementById('back-button-details').addEventListener('click', goBackToCharacters);
+        const actor = document.createElement('p');
+        actor.innerHTML = `<span class="detail-title">Ator:</span> ${character.actor || 'Desconhecido'}`;
+
+        // Cria o botão de voltar
+        const backButtonDetails = document.createElement('button');
+        backButtonDetails.id = 'back-button-details';
+        backButtonDetails.textContent = 'Voltar';
+        backButtonDetails.addEventListener('click', goBackToCharacters);
+
+        // Adiciona os elementos ao container de informações
+        infoContainer.appendChild(name);
+        infoContainer.appendChild(species);
+        infoContainer.appendChild(gender);
+        infoContainer.appendChild(house);
+        infoContainer.appendChild(dateOfBirth);
+        infoContainer.appendChild(yearOfBirth);
+        infoContainer.appendChild(wizard);
+        infoContainer.appendChild(ancestry);
+        infoContainer.appendChild(eyeColour);
+        infoContainer.appendChild(hairColour);
+        infoContainer.appendChild(patronus);
+        infoContainer.appendChild(hogwartsStudent);
+        infoContainer.appendChild(hogwartsStaff);
+        infoContainer.appendChild(alternateNames);
+        infoContainer.appendChild(wand);
+        infoContainer.appendChild(wandDetails);
+        infoContainer.appendChild(actor);
+        infoContainer.appendChild(backButtonDetails);
+
+        // Adiciona a imagem e o container de informações ao container de detalhes
+        detailsContainer.appendChild(img);
+        detailsContainer.appendChild(infoContainer);
+
+        // Adiciona o container de detalhes ao elemento principal
+        characterDetails.appendChild(detailsContainer);
     }
 
     // Função para voltar à lista de personagens
@@ -115,7 +212,14 @@ document.addEventListener('DOMContentLoaded', () => {
             backButton.style.display = 'block';
             fundoCasa.style.display = 'flex';
             fundoCasa.style.backgroundColor = getHouseColor(currentHouse);
-            fundoCasa.innerHTML = `<img src="./imgs/casas/${currentHouse.toUpperCase()}.webp" alt="${currentHouse}">`;
+
+            // Atualiza o fundo da casa
+            const img = document.createElement('img');
+            img.src = `./imgs/casas/${currentHouse.toUpperCase()}.webp`;
+            img.alt = currentHouse;
+            fundoCasa.innerHTML = ''; // Limpa o conteúdo anterior
+            fundoCasa.appendChild(img);
+
             displayCharacters(filteredCharacters);
         });
     });
