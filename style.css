@@ -178,7 +178,7 @@ body {
 }
 
 .character-details-container {
-    background: #ffffffbb;
+    background: #ffffffa0;
     padding: 20px;
     border-radius: 10px;
     max-width: 900px;
@@ -233,8 +233,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
     position: absolute;
-    bottom: 20px; /* Distância do fundo */
-    left: 20px; /* Distância da esquerda */
+    bottom: 20px;
+    left: 20px;
     font-size: 18px;
 }
 
