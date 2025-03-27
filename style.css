@@ -109,7 +109,6 @@ body {
 
 /* Botão de voltar */
 #back-button {
-    background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -119,10 +118,35 @@ body {
     bottom: 40px;
     right: 40px;
     z-index: 3;
+    transition: all 0.3s ease;
 }
 
+/* Estilos do botão Voltar por casa */
+#back-button.gryffindor {
+    background-color: #7F0909;
+}
+
+#back-button.slytherin {
+    background-color: #1A472A;
+}
+
+#back-button.hufflepuff {
+    background-color: #FFD700;
+    color: #333;
+}
+
+#back-button.ravenclaw {
+    background-color: #0D2265;
+}
+
+#back-button.all-houses {
+    background-color: #000000;
+}
+
+/* Efeitos hover mantendo a cor da casa */
 #back-button:hover {
-    background-color: #45a049;
+    opacity: 0.9;
+    transform: scale(1.05);
 }
 
 /* Cartões de personagem */
@@ -225,21 +249,52 @@ body {
     margin: 10px 0;
 }
 
-#back-button-details {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+/* Botão de fechar (X) */
+.close-button {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
-    font-size: 18px;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    color: #333;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: all 0.3s ease;
 }
 
-#back-button-details:hover {
-    background-color: #45a049;
+/* Estilos do botão X por casa */
+.close-button.gryffindor {
+    color: #7F0909;
+}
+
+.close-button.slytherin {
+    color: #1A472A;
+}
+
+.close-button.hufflepuff {
+    color: #FFD700;
+}
+
+.close-button.ravenclaw {
+    color: #0D2265;
+}
+
+.close-button.all-houses {
+    color: #000000;
+}
+
+/* Efeitos hover com cores das casas */
+.close-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
 }
 
 /* Fundo da casa selecionada */
@@ -261,39 +316,10 @@ body {
     opacity: 0.5;
 }
 
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    color: #333;
-    border: none;
-    border-radius: 50%;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 5;
-    transition: all 0.3s ease;
-    padding: 0;
-    margin: 0;
-}
-
-.close-button:hover {
-    color: #ff4444;
-    background-color: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
-}
-
 .character-card,
 .character-details-container,
 #search-bar,
-#back-button,
-#back-button-details {
+#back-button {
     pointer-events: auto;
 }
 
@@ -307,69 +333,9 @@ body {
     pointer-events: auto;
 }
 
-
-/* BOTÃO DE FECHAR (X) - CORES DAS CASAS */
-
-.close-button {
-    /* Estilo base mantido */
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    color: #333;
-    border: none;
-    border-radius: 50%;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 5;
-    transition: all 0.3s ease;
-}
-
-/* Efeitos hover com cores das casas */
-.close-button:hover.gryffindor {
-    color: #7F0909;
-    background-color: rgba(127, 9, 9, 0.1);
-}
-
-.close-button:hover.slytherin {
-    color: #1A472A;
-    background-color: rgba(26, 71, 42, 0.1);
-}
-
-.close-button:hover.hufflepuff {
-    color: #FFD700;
-    background-color: rgba(255, 215, 0, 0.1);
-}
-
-.close-button:hover.ravenclaw {
-    color: #0D2265;
-    background-color: rgba(13, 34, 101, 0.1);
-}
-
-.close-button:hover.all-houses {
-    color: #000000;
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
 /* Icone de lupa na barra de pesquisa */
-.search-container {
-    position: relative;
-    width: 60%;
-    margin: 0 auto 20px;
-}
-
 #search-bar {
-    width: 100%;
     padding: 10px 10px 10px 40px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
     background: rgba(255, 255, 255, 0.8) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>') no-repeat 12px center;
     background-size: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -380,9 +346,4 @@ body {
     outline: none;
     border-color: #4CAF50;
     box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
-}
-
-/* Remove o botão voltar de detalhes */
-#back-button-details {
-    display: none !important;
 }
