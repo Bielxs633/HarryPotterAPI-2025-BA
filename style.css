@@ -1,3 +1,4 @@
+/* INÍCIO: Estilos originais */
 * {
     margin: 0;
     padding: 0;
@@ -9,9 +10,10 @@ body {
     flex-wrap: wrap;
     height: 100vh;
     overflow: hidden;
+    /* MELHORIA 9: Transição para modo escuro */
+    transition: background-color 0.3s ease;
 }
 
-/* Quadrantes das casas */
 .quadrante {
     width: 50%;
     height: 50%;
@@ -55,7 +57,6 @@ body {
     transform: scale(1.1);
 }
 
-/* Botão central */
 .botao-central {
     position: absolute;
     top: 50%;
@@ -80,7 +81,6 @@ body {
     transform: scale(1.1);
 }
 
-/* Estilo da área de personagens */
 #characters-container {
     display: none;
     position: absolute;
@@ -95,7 +95,6 @@ body {
     z-index: 2;
 }
 
-/* Barra de pesquisa */
 #search-bar {
     width: 60%;
     padding: 10px;
@@ -107,7 +106,6 @@ body {
     display: block;
 }
 
-/* Botão de voltar */
 #back-button {
     color: white;
     padding: 10px 20px;
@@ -121,7 +119,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Estilos do botão Voltar por casa */
 #back-button.gryffindor {
     background-color: #7F0909;
 }
@@ -143,13 +140,11 @@ body {
     background-color: #000000;
 }
 
-/* Efeitos hover mantendo a cor da casa */
 #back-button:hover {
     opacity: 0.9;
     transform: scale(1.05);
 }
 
-/* Cartões de personagem */
 .character-card {
     display: inline-block;
     background: #ffffffbb;
@@ -161,6 +156,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9);
     transition: transform 0.3s ease;
     cursor: pointer;
+    /* MELHORIA 7: Posição relativa para o botão de favorito */
+    position: relative;
 }
 
 .character-card:hover {
@@ -187,7 +184,6 @@ body {
     margin: 5px 0;
 }
 
-/* Estilo da área de detalhes do personagem */
 #character-details {
     display: none;
     position: absolute;
@@ -249,7 +245,6 @@ body {
     margin: 10px 0;
 }
 
-/* Botão de fechar (X) */
 .close-button {
     position: absolute;
     top: 10px;
@@ -270,7 +265,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Estilos do botão X por casa */
 .close-button.gryffindor {
     color: #7F0909;
 }
@@ -291,13 +285,11 @@ body {
     color: #000000;
 }
 
-/* Efeitos hover com cores das casas */
 .close-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
 }
 
-/* Fundo da casa selecionada */
 #fundo-casa {
     display: none;
     position: absolute;
@@ -316,34 +308,62 @@ body {
     opacity: 0.5;
 }
 
-.character-card,
-.character-details-container,
-#search-bar,
-#back-button {
-    pointer-events: auto;
+/* Responsividade */
+@media (max-width: 768px) {
+    .quadrante img, .botao-central img {
+        width: 150px;
+    }
+    
+    .character-card {
+        width: 90%;
+    }
+    
+    .character-details-container {
+        flex-direction: column;
+        padding: 20px;
+        max-width: 90%;
+    }
+    
+    .detail-image {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    #filters-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-select, #search-bar {
+        width: 90%;
+    }
+    
+    #back-button {
+        bottom: 20px;
+        right: 20px;
+    }
 }
 
-#characters-container,
-#character-details {
-    pointer-events: auto;
-}
-
-#characters-container > *:not(#characters-list),
-#character-details > * {
-    pointer-events: auto;
-}
-
-/* Icone de lupa na barra de pesquisa */
-#search-bar {
-    padding: 10px 10px 10px 40px;
-    background: rgba(255, 255, 255, 0.8) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>') no-repeat 12px center;
-    background-size: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-#search-bar:focus {
-    outline: none;
-    border-color: #4CAF50;
-    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+@media (max-width: 480px) {
+    .quadrante img, .botao-central img {
+        width: 120px;
+    }
+    
+    .character-card img {
+        width: 150px;
+        height: 210px;
+    }
+    
+    .character-details-container {
+        padding: 15px;
+    }
+    
+    .character-info h2 {
+        font-size: 24px;
+    }
+    
+    .character-info p {
+        font-size: 16px;
+    }
 }
