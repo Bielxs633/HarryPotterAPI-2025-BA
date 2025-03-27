@@ -79,6 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
             characterDetails.removeChild(characterDetails.firstChild)
         }
 
+        // Adiciona evento de clique no fundo
+        characterDetails.addEventListener('click', (e) => {
+            if (e.target === characterDetails) {
+                goBackToCharacters()
+            }
+        })
+
         // Cria o container de detalhes
         const detailsContainer = document.createElement('div')
         detailsContainer.classList.add('character-details-container')
@@ -123,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const patronus = createDetail('Patronus', character.patronus)
         const hogwartsStudent = createDetail('Estudante de Hogwarts', character.hogwartsStudent ? 'Sim' : 'Não')
         const hogwartsStaff = createDetail('Funcionário de Hogwarts', character.hogwartsStaff ? 'Sim' : 'Não')
-        const alternateNames = createDetail('Nomes Alternativos', character.alternate_names.join(', ') || 'Nenhum')
+        const alternateNames = createDetail('Nomes Alternativos', character.alternate_names?.join(', ') || 'Nenhum')
 
         // Cria os detalhes da varinha
         const wand = document.createElement('p')
@@ -196,6 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function goBackToCharacters(){
         charactersContainer.style.display = 'block'
         characterDetails.style.display = 'none'
+        // Remove o event listener para evitar múltiplas instâncias
+        characterDetails.removeEventListener('click', goBackToCharacters)
     }
 
     // Função para voltar à tela inicial
@@ -204,6 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
         fundoCasa.style.display = 'none'
         searchBar.style.display = 'none'
         backButton.style.display = 'none'
+        // Remove o event listener para evitar múltiplas instâncias
+        charactersContainer.removeEventListener('click', goBackToHome)
     }
 
     // Função para filtrar personagens
@@ -242,6 +253,13 @@ document.addEventListener('DOMContentLoaded', () => {
             // Adiciona a imagem ao fundoCasa
             fundoCasa.appendChild(img)
 
+            // Adiciona evento de clique no fundo
+            charactersContainer.addEventListener('click', (e) => {
+                if (e.target === charactersContainer) {
+                    goBackToHome()
+                }
+            })
+
             // Exibe os personagens da casa selecionada
             displayCharacters(filteredCharacters)
         })
@@ -254,6 +272,14 @@ document.addEventListener('DOMContentLoaded', () => {
         searchBar.style.display = 'block'
         backButton.style.display = 'block'
         fundoCasa.style.display = 'none'
+        
+        // Adiciona evento de clique no fundo
+        charactersContainer.addEventListener('click', (e) => {
+            if (e.target === charactersContainer) {
+                goBackToHome()
+            }
+        })
+        
         displayCharacters(allCharacters)
     })
 

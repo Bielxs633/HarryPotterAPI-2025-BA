@@ -22,25 +22,25 @@ body {
 }
 
 .grifinoria {
-    background-color: #7F0909; /* Vermelho */
+    background-color: #7F0909; /*! Vermelho !*/
     top: 0;
     left: 0;
 }
 
 .sonserina {
-    background-color: #1A472A; /* Verde */ 
+    background-color: #1A472A; /** Verde **/ 
     top: 0;
     right: 0;
 }
 
 .lufalufa {
-    background-color: #FFD700; /* Amarelo */
+    background-color: #FFD700; /*: Amarelo :*/
     bottom: 0;
     left: 0;
 }
 
 .corvinal {
-    background-color: #0D2265;  /* Azul */
+    background-color: #0D2265;  /*? Azul ?*/
     bottom: 0;
     right: 0;
 }
@@ -259,4 +259,25 @@ body {
 #fundo-casa img {
     width: 300px;
     opacity: 0.5;
+}
+
+/* Permite que o clique passe para o elemento pai (fundo) */
+.character-card,
+.character-details-container,
+#search-bar,
+#back-button,
+#back-button-details {
+    pointer-events: auto;
+}
+
+/* Garante que o container principal capture os cliques no fundo */
+#characters-container,
+#character-details {
+    pointer-events: auto;
+}
+
+/* Impede que os elementos filhos propaguem os cliques para o fundo */
+#characters-container > *:not(#characters-list),
+#character-details > * {
+    pointer-events: auto;
 }
