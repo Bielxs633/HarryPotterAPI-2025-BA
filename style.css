@@ -22,25 +22,25 @@ body {
 }
 
 .grifinoria {
-    background-color: #7F0909; /*! Vermelho !*/
+    background-color: #7F0909;
     top: 0;
     left: 0;
 }
 
 .sonserina {
-    background-color: #1A472A; /** Verde **/ 
+    background-color: #1A472A;
     top: 0;
     right: 0;
 }
 
 .lufalufa {
-    background-color: #FFD700; /*: Amarelo :*/
+    background-color: #FFD700;
     bottom: 0;
     left: 0;
 }
 
 .corvinal {
-    background-color: #0D2265;  /*? Azul ?*/
+    background-color: #0D2265;
     bottom: 0;
     right: 0;
 }
@@ -88,7 +88,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Fundo escurecido */
+    background: rgba(0, 0, 0, 0.7);
     overflow-y: auto;
     padding: 20px;
     text-align: center;
@@ -171,7 +171,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Fundo escurecido */
+    background: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
     z-index: 4;
@@ -179,7 +179,7 @@ body {
 
 .character-details-container {
     background: #ffffffa0;
-    padding: 20px;
+    padding: 50px 20px 20px 20px;
     border-radius: 10px;
     max-width: 900px;
     margin: auto;
@@ -253,7 +253,7 @@ body {
     z-index: 1;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.7); /* Fundo escurecido */
+    background: rgba(0, 0, 0, 0.7);
 }
 
 #fundo-casa img {
@@ -261,7 +261,34 @@ body {
     opacity: 0.5;
 }
 
-/* Permite que o clique passe para o elemento pai (fundo) */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    color: #333;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: all 0.3s ease;
+    padding: 0;
+    margin: 0;
+}
+
+.close-button:hover {
+    color: #ff4444;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
 .character-card,
 .character-details-container,
 #search-bar,
@@ -270,13 +297,11 @@ body {
     pointer-events: auto;
 }
 
-/* Garante que o container principal capture os cliques no fundo */
 #characters-container,
 #character-details {
     pointer-events: auto;
 }
 
-/* Impede que os elementos filhos propaguem os cliques para o fundo */
 #characters-container > *:not(#characters-list),
 #character-details > * {
     pointer-events: auto;
